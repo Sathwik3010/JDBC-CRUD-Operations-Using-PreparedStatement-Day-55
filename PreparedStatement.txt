@@ -1,0 +1,13 @@
+we use prepared statement instead of statement because prepared statement is time saving than compared to statement method
+in statement from java application  to database and again from database to java application total 4 pages should happen they are
+ request time
+ compile time
+ execute time 
+ response time
+
+but in the case of prepared statement only 3 pages happen
+ request time
+ execute time 
+ response time
+
+where a lot of time saves
