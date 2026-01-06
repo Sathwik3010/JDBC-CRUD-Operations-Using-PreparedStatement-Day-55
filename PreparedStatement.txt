@@ -1,3 +1,18 @@
+The Need for PreparedStatement
+• Performance Issues with Statement: When using a normal Statement, the database must compile and execute the SQL query every single time it is called. For applications like IRCTC (searching trains) or BookMyShow (searching theaters), where the same query is executed lakhs of times per day with different inputs, this constant recompilation creates significant performance overhead.
+• The PreparedStatement Solution: To overcome this, JDBC provides PreparedStatement. The primary advantage is that the query is compiled only once, even if it is executed multiple times with different values, leading to improved overall application performance.
+• Pre-compilation: When con.prepareStatement(sqlQuery) is called, the query is sent to the database engine to be compiled and stored immediately
+
+Advantages:
+• Improved Performance: Due to one-time compilation.
+• Reduced Network Traffic: The full query string does not need to be sent to the database every time.
+• Dynamic Inputs: Allows executing the same query multiple times with different values at runtime.
+• Simplified Data Handling: Easier to insert Date values and Large Objects (CLOB, BLOB) compared to standard Statements.
+• Security: It effectively prevents SQL Injection Attacks.
+Limitation:
+• Single Query Association: A PreparedStatement is associated with only one specific SQL query (like a CDMA phone), whereas a Statement can be used to execute any number of different queries (like a GSM phone)
+
+
 we use prepared statement instead of statement because prepared statement is time saving than compared to statement method
 in statement from java application  to database and again from database to java application total 4 pages should happen they are
  request time
